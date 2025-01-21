@@ -1,0 +1,107 @@
+
+main{
+  background-color: var(--main-color);
+  height: 100vh;
+  color: var(--text-color-white)
+}
+
+.acc-img{
+  width: 60%;
+}
+
+.icon-google{
+  width: 6%;
+}
+
+.field-google{
+  display: flex;
+  justify-content: space-between;
+}
+
+.politic{
+  font-size: x-small;
+}
+
+.login-btn{
+  background-color: var(--accent-color);
+}
+
+/* Забираємо фон мітки у стані активності */
+.form-floating > label {
+  background-color: transparent !important;
+  background: none !important;
+}
+
+/* Видаляємо фон при фокусі на input */
+.form-floating > input:focus ~ label,
+.form-floating > input:not(:placeholder-shown) ~ label {
+  background-color: transparent !important;
+  background: none !important;
+  color: inherit; /* Щоб колір мітки залишався */
+}
+
+/* Видаляємо будь-які залишкові ефекти */
+.form-floating > label::after {
+  display: none !important;
+}
+
+/* Контейнер, який займає всю ширину екрана */
+.line-with-text-wrapper {
+  width: 100vw; /* Повна ширина вікна браузера */
+  display: flex;
+  justify-content: center;
+}
+
+/* Лінія з текстом */
+.line-with-text {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Лінія тягнеться на всю ширину контейнера */
+}
+
+.line-with-text::before,
+.line-with-text::after {
+  content: "";
+  flex: 1; /* Розтягуємо лінію рівномірно */
+  border-bottom: 1px solid #a5a5a5; /* Лінія */
+  opacity: 0.5;
+  margin: 0 5px; /* Відступ між текстом і лініями */
+}
+
+.line-with-text span {
+  font-size: 16px; /* Розмір тексту */
+  color: var(--text-color-white); /* Колір тексту */
+  white-space: nowrap; /* Текст не переноситься */
+}
+
+/* для розмиття */
+.modal {
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+}
+
+
+@media (max-width: 768px) {
+  .line-with-text::before,
+  .line-with-text::after {
+    margin: 0 5px; /* Менший відступ для мобільних пристроїв */
+  }
+
+  .line-with-text span {
+    font-size: 14px; /* Менший текст */
+  }
+
+  .icon-google{
+    width: 7%;
+  }
+
+  .modal-dialog {
+    position: fixed;
+    bottom: 0;
+    left: 0%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 0;
+    margin: 0 0;
+  }
+}

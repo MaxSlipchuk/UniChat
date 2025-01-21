@@ -1,0 +1,15 @@
+:root {
+    --main-color: #3B4891;
+    --accent-color: #5EAFFF;
+    --main-font: "Ubuntu";
+    --text-color-white: rgb(245, 237, 227);
+  }
+
+body, html{
+  min-width: 320px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: var(--main-font);
+}

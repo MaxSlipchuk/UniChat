@@ -39,7 +39,8 @@
           <div class="line-with-text my-1">
             <span>або</span>
           </div>
-          <button class="create-btn btn btn-light w-100 rounded-pill">Створити профіль</button>
+          <button class="create-btn btn btn-light w-100 rounded-pill"
+          data-bs-toggle="modal" data-bs-target="#createModal">Створити профіль</button>
           <p class="politic p fw-light lh-1 mt-1">Реєструючись, ви погоджуєтеся з Умовами надання послуг і Політикою конфіденційності, включаючи Політику використання файлів cookie.</p>
         </div>
         <!-- Нижній блок -->
@@ -47,15 +48,52 @@
           <h6 class="h6">У вас уже є профіль?</h6>
           <div class="col-md-6">
             <button type="button" class="login-btn btn btn-outline-light rounded-pill w-100 "
-            data-bs-toggle="modal" data-bs-target="#exampleModal">Вхід</button>
+            data-bs-toggle="modal" data-bs-target="#loginModal">Вхід</button>
           </div>
           
         </div>
       </div>
     </div>
+    <!-- модалка створення профілю -->
+    <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+          <div class="container">
+            <div class="modal-header">
+              <img src="{% static 'img/logo.png' %}" alt="" style="width: 5%;">
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h1 class="h1">Створіть профіль</h1>
+              <div class="my-4 my-md-5">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control text-light bg-dark" id="inputName" placeholder="Ім'я">
+                  <label for="inputName" class="text-light">Ім'я</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control text-light bg-dark" id="floatingInput" placeholder="name@example.com">
+                  <label for="floatingInput" class="text-light">Електронна пошта</label>
+                  <div id="emailHelp" class="form-text text-light">Ми ніколи і нікому не передаємо вашу пошту.</div>
+                </div>
+                <button type="button" class="login-btn btn btn-outline-light rounded-pill w-100 mb-2">Далі</button>
+                <button type="button" class="btn btn-outline-light rounded-pill w-100 ">Забули пароль?</button>
+              </div>
+              <div>
+                <p class = 'p'>Немаєте профілю? 
+                  <a class="link-info link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#">
+                    Зареєструйтеся
+                  </a>
+                </p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- модалка для входу -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content bg-dark">
           <div class="container">

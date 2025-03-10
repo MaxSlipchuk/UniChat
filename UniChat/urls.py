@@ -16,9 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from account import views as account
+from account import views
+from app_base.views import page_not_found
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', account.account)
+    path('', views.AccountPage.as_view(), name='account_page')
 ]
+
+# для сторінок яких не існує
+handler404 = page_not_found

@@ -24,9 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6ik&6$xnv#+j0e*g5gfhk3yeee%5kus!l90!^0b2+y*c*q1e^t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+# тимчасово вимкнути, працювати з цим тыльки локально
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1',  '192.168.1.10']
+# ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -127,9 +131,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+# для продакшана
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # налаштовуємо підключення до папки assets де знаходяться основні файли static
+# використовується для розробки, потім треба буде зібрати в colectionstatic
 STATICFILES_DIRS = [BASE_DIR / "assets"]
 
 MEDIA_URL = 'media/'

@@ -15,15 +15,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from account import views
+from django.urls import path, include
+from account.views import AccountPage
 from app_base.views import page_not_found
+from main.views import MainPage
+from django.urls import get_resolver
+from django.http import HttpResponse
 
 
+def show_urls(request):
+    resolver = get_resolver()
+    urls = [str(pattern) for pattern in resolver.url_patterns]
+    return HttpResponse("<br>".join(urls))
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.AccountPage.as_view(), name='account_page')
+    path('', AccountPage.as_view(), name='account_page'),
+    path('main/', MainPage.as_view(), name='main'),
+    path('users/', include('account.urls')),
 ]
 
 # для сторінок яких не існує

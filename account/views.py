@@ -1,24 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import TemplateView
 from django.http.response import HttpResponseNotFound
+from django.template.loader import render_to_string
 
 # Create your views here.
 
 # клас для відображення сторінки
-class AccountPage(TemplateView):
-    template_name = 'account/account.html'
-    # для додавання додаткових данних
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'login'
-        return context
+class AccountPage(View):
+    # для обробки get
+    def get(self, request):
+        return render(request, 'account/account.html')
 
     # для обробки post
     def post(self, request):
         print("форма відпрвлена")
-        return render(request, 'account/account.html')
+        return render(request, 'main/main.html')
     
 
 

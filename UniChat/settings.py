@@ -24,13 +24,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6ik&6$xnv#+j0e*g5gfhk3yeee%5kus!l90!^0b2+y*c*q1e^t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # тимчасово вимкнути, працювати з цим тыльки локально
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1',  '192.168.1.10']
 # ALLOWED_HOSTS = ["*"]
+
+# вказуємо нашого користувача
+AUTH_USER_MODEL = 'account.User'
+
 
 
 # Application definition
@@ -44,7 +48,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app_base',
     'account',
-    'user',
     'main'
 ]
 
@@ -94,7 +97,6 @@ DATABASES = {
         'PORT': '5432'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators

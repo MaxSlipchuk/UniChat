@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1',  '192.168.1.10']
 # ALLOWED_HOSTS = ["*"]
 
 # вказуємо нашого користувача
-AUTH_USER_MODEL = 'account.User'
+# AUTH_USER_MODEL = 'account.CustomUser'
 
 
 
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app_base',
-    'account',
+    'users',
     'main'
 ]
 

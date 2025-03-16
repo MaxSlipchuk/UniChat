@@ -16,23 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from account.views import AccountPage
+from users.views import UsersPage
 from app_base.views import page_not_found
 from main.views import MainPage
-from django.urls import get_resolver
-from django.http import HttpResponse
+# from . import views
 
-
-def show_urls(request):
-    resolver = get_resolver()
-    urls = [str(pattern) for pattern in resolver.url_patterns]
-    return HttpResponse("<br>".join(urls))
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', AccountPage.as_view(), name='account_page'),
+    # users/login - правильний шлях
+    path('users/', include('users.urls', namespace='users')),
+    path('', UsersPage.as_view(), name='account_page'),
     path('main/', MainPage.as_view(), name='main'),
-    path('users/', include('account.urls')),
 ]
 
 # для сторінок яких не існує

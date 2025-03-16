@@ -113,11 +113,16 @@
                   <span>або</span>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="email" class="form-control text-light bg-dark" id="floatingInput" placeholder="name@example.com">
+                  <!-- <input type="email" class="form-control text-light bg-dark" id="floatingInput" placeholder="name@example.com">
                   <label for="floatingInput" class="text-light">Електронна пошта</label>
-                  <div id="emailHelp" class="form-text text-light">Ми ніколи і нікому не передаємо вашу пошту.</div>
+                  <div id="emailHelp" class="form-text text-light">Ми ніколи і нікому не передаємо вашу пошту.</div> -->
+                  <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="login-btn btn btn-outline-light rounded-pill w-100 mb-2">Далі</button>
+                  </form>
                 </div>
-                <button type="button" class="login-btn btn btn-outline-light rounded-pill w-100 mb-2">Далі</button>
+                
                 <button type="button" class="btn btn-outline-light rounded-pill w-100 ">Забули пароль?</button>
               </div>
               <div>

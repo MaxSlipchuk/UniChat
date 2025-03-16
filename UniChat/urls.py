@@ -16,18 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from users.views import UsersPage
+# from users.views import UsersPage
 from app_base.views import page_not_found
 from main.views import MainPage
-# from . import views
+from users.views import *
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # users/login - правильний шлях
     path('users/', include('users.urls', namespace='users')),
-    path('', UsersPage.as_view(), name='account_page'),
+    # path('', UsersPage.as_view(), name='account_page'),
     path('main/', MainPage.as_view(), name='main'),
+    path('login/', login_user, name='login'),
+
+
 ]
 
 # для сторінок яких не існує

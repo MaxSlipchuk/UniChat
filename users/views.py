@@ -9,19 +9,6 @@ from django.urls import reverse
 
 # Create your views here.
 
-# клас для відображення сторінки
-# class UsersPage(View):
-#     # для обробки get
-#     def get(self, request):
-#         form = LoginUserForm()
-#         return render(request, 'users/users.html', context={'form': form})
-
-#     # для обробки post
-#     def post(self, request):
-#         form = LoginUserForm()
-#         return render(request, 'users/users.html', context={'form': form})
-
-
 def login_user(request):
     if request.method == 'POST':
         form = LoginUserForm(request.POST)
@@ -39,20 +26,5 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return HttpResponseRedirect(reverse('users:login'))
-
-
-
-
-# class Account(View):
-#     # для обробки get
-#     def get(self, request):
-#         return render(request, 'account/account.html')
-    
-#     # для обробки post
-#     def post(self, request):
-#         print("форма відпрвлена")
-#         return render(request, 'account/account.html')
-
-    
 
     

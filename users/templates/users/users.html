@@ -118,7 +118,11 @@
                   <div id="emailHelp" class="form-text text-light">Ми ніколи і нікому не передаємо вашу пошту.</div> -->
                   <form action="" method="post">
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    <div class="form-error">{{ form.nonefield_errors }}</div>
+                    {% for f in form %}
+                    <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}</label>{{ f }}</p>
+                    <div class="form-error">{{ f.errors }}</div>
+                    {% endfor %}
                     <button type="submit" class="login-btn btn btn-outline-light rounded-pill w-100 mb-2">Далі</button>
                   </form>
                 </div>

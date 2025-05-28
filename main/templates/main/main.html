@@ -8,4 +8,16 @@
     {% if user.is_authenticated %}
     <a href="{% url 'users:logout' %}">вийти</a>
     {% endif %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ login_form.as_p }}
+        <button type="submit" name="login_submit">форма логін</button>
+    </form>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ register_form.as_p }}
+        <button type="submit" name = 'register_submit'>форма регістер</button>
+    </form>
 {% endblock %}
